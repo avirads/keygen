@@ -1,0 +1,19 @@
+<html>
+    <head>
+        <script type="module">
+            import * as kaspa from './kaspa.js';
+            (async () => {
+                await kaspa.default('./kaspa_bg.wasm');
+				const keypair = kaspa.Keypair.random()
+				const addr = keypair.toAddress()
+				console.log(`${addr.prefix}:${addr.payload}`)
+				
+                console.log(kaspa.version());
+				console.log(keypair)				
+				console.log(keypair.toAddressECDSA())
+
+            })();
+        </script>
+    </head>
+    <body></body>
+</html>
